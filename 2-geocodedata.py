@@ -84,5 +84,5 @@ def fill_missing_towns(file, n):
 listings = load_file("output/all.json", 0)
 # listings = fill_missing_towns("output/all_withstate.json", 0)
 
-with open("output/all_withstate.json" % date, "w") as f:
+with open("output/all_withstate.json", "w") as f:
     f.write(json.dumps(listings))
