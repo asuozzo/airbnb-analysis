@@ -2,6 +2,8 @@
 
 Before you start, head to any Airbnb search page and load it while looking at network requests in your browser. Filter by XHR, and you should see a few urls that look like API calls. Find one that contains the "key" param, copy that key.
 
+Also, create an `output` folder in the main directory where your scripts can save files.
+
 ### Get the data
 Next, open `1-scrapedata.py`. This script will get you a json file of all locations within two northeast/southwest points you specify. Enter the key you found as your `api_key`, then scroll down to the definition for `b` near the bottom. Pick northeast and southwest points that form a rectangle around the area you'd like to get data for, then run the script.
 
