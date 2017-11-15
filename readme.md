@@ -12,7 +12,7 @@ Each individual search result will dump to a file in the output folder, and all 
 ### Reverse geocode the data
 Now we've got a truckload of Airbnb data, but ideally each Airbnb listing should have a city, county and state attached to it. The API returns the town that the host listed, which is not always correct — sometimes people list a nearby popular town so the listing shows up in searches. But we've also got a lat/lng point for each listing, which means we can reverse geocode the points using Google's geocode API. These points are jittered to protect the host's privacy, but unless the listing is right on a border it should get us the correct city, state and county.
 
-First, head to the Google API console and get yourself an API key ([instructions here](https://developers.google.com/maps/documentation/geocoding/get-api-key)). Pop it into the `api_key` variable in `2-geocodedata.py`.
+Before you run this script, head to the Google API console and get yourself an API key ([instructions here](https://developers.google.com/maps/documentation/geocoding/get-api-key)). Pop it into the `api_key` variable in `2-geocodedata.py`.
 
 Run the file, and you'll get a file of listings with geographic information in `output/all_withstate.json`. This doesn't always get all the listings. If you end up with a bunch of un-geocoded listings, comment out the `load_file` function and run the `fill_missing_towns` function on the geocoded file instead.
 
@@ -20,4 +20,4 @@ Run the file, and you'll get a file of listings with geographic information in `
 Great, you've got a massive json file now. The problem? It's nested and has a ton of excess stuff that we just don't need. If you don't want to those headaches, run `3-flattenfile` to get a simpler json file of all the listings.
 
 ### Get host info for each listing
-If you've got a really massive dataset, you may want to run this script on a smaller file, as it involves loading each page and using Beautiful Soup to parse the information on that page.
+This one is optional; if you've got a really massive dataset, you may want to run this script on a smaller file, as it involves loading each page and using Beautiful Soup to parse the information on that page. If you don't get all the hosts the first time around, you can re-run the script and it will try to fill in the blanks.
