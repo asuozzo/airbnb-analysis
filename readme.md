@@ -21,3 +21,6 @@ Great, you've got a massive json file now. The problem? It's nested and has a to
 
 ### Get host info for each listing
 This one is optional; if you've got a really massive dataset, you may want to run this script on a smaller file, as it involves loading each page and using Beautiful Soup to parse the information on that page. If you don't get all the hosts the first time around, you can re-run the script and it will try to fill in the blanks.
+
+### Now for the fun part
+Run `jupyter notebook` from your command line (or pip install first, if you don't have it set up yet). In the browser window that pops up, navigate to `notebook/explore-airbnb-data.ipynb`. Then start exploring your data!
