@@ -6,7 +6,6 @@ import json
 import random
 
 filename = "output/airbnb_flat.json"
-export_filename = filename.split(".")[0] + "_withhost.json"
 
 
 def getUser(link):
@@ -41,20 +40,23 @@ def getList(filename):
     airbnb = json.loads(airbnb.read())
 
     for listing in airbnb:
-        if not listing.get("hostname"):
+        print "working on %s" % i
+        i += 1
+
+        if listing.get("hostname") == None:
             link = "https://www.airbnb.com/rooms/%s" % listing["id"]
             randtime = random.randint(1, 4)
             time.sleep(randtime)
-            print "Getting host for listing %s" % i
-            i += 1
             host = getUser(link)
             try:
                 listing["hostname"] = host[0]
                 listing["hostid"] = host[1]
             except Exception as e:
                 print "skipped"
+        else:
+            print listing["hostname"]
 
-    with open(export_filename, "w") as f:
+    with open(filename, "wb") as f:
         f.write(json.dumps(airbnb))
 
 getList(filename)

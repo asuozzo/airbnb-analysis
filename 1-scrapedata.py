@@ -84,7 +84,7 @@ def get_subdivisions(box):
 
 # Here's where you specify the top left and bottom right points of your 
 # desired geographical boundaries.
-b = Box(ne=Point(lat=42.80564, lng=-73.2000),
+b = Box(ne=Point(lat=42.80564, lng=-73.2000000),
         sw=Point(lat=42.697843, lng=-73.479597))
 
 
