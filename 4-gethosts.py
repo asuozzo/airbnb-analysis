@@ -51,10 +51,8 @@ def getList(filename):
             try:
                 listing["hostname"] = host[0]
                 listing["hostid"] = host[1]
-                print listing["hostname"]
-                print listing["hostid"]
             except Exception as e:
-                pass
+                print "skipped"
 
     with open(export_filename, "w") as f:
         f.write(json.dumps(airbnb))
